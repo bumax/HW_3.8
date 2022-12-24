@@ -12,7 +12,7 @@ void FillSpiralArray(int[,] array, int m, int n, int dir)
 {
     //dir - направление движения (0 - вправо, 1 - вниз, 2 - влево, 3 - вверх)
 
-
+    // заполняем в заданном направлении, пока не упремся
     while (IsValidPoint(array, m, n))
     {
         array[m, n] = i;
@@ -34,9 +34,10 @@ void FillSpiralArray(int[,] array, int m, int n, int dir)
         }
     }
 
-    if (array.Length == i - 1)
+    if (array.Length == i - 1) // если заполнили весь массив, завершаем работу
         return;
 
+    // поворачиваем на 90 градусов по часовой стрелке
     switch (dir)
     {
         case 0:
@@ -63,7 +64,7 @@ void FillSpiralArray(int[,] array, int m, int n, int dir)
 
 }
 
-// проверям точку
+// условия валидности точки - она не за границами массива и в этой точке записан 0 (т.е. ее ещё не заполняли)
 bool IsValidPoint(int[,] array, int m, int n)
 {
     if (array.GetLength(0) > m && array.GetLength(1) > n && m >= 0 && n >= 0)
