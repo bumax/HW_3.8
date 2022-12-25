@@ -53,12 +53,12 @@ void FillSpiralArray(int[,] array, int m, int n, int dir)
         case 2:
             m--;
             n++;
-            FillSpiralArray(array, m--, n++, 3);
+            FillSpiralArray(array, m, n, 3);
             break;
         case 3:
             m++;
             n++;
-            FillSpiralArray(array, m++, n--, 0);
+            FillSpiralArray(array, m, n, 0);
             break;
     }
 
